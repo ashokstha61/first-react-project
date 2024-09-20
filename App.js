@@ -1,35 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React, {Component, useState} from 'react';
-import {Button, Text, View} from 'react-native';
-
+import React, {useState} from 'react';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 function App() {
-  const [name, setName] = useState('anil');
-  function testName() {
-    setName('sagar');
-  }
+  const [name, setName] = useState('');
   return (
     <View>
-      <Text>Use of useState</Text>
-      <Text style={{fontSize: 20}}>{name}</Text>
-      <Button title="Update name" onPress={() => setName('hari')} />
-      <User name={name} age={29} />
+      <Text style={{fontSize: 30}}> Handle text input </Text>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Enter your Name"
+        value={name}
+        onChangeText={text => setName(text)}
+      />
+      <Text style={{fontSize: 20, margin: 10}}>Your Name is: {name}</Text>
+      <Button title="Clear" onPress={() => setName('')} />
     </View>
   );
 }
 
-const User = props => {
-  return (
-    <View style={{backgroundColor: 'green', padding: 5}}>
-      <Text style={{fontSize: 25}}>Name: {props.name}</Text>
-      <Text style={{fontSize: 24}}> Age: {props.age}</Text>
-    </View>
-  );
-};
+const styles = StyleSheet.create({
+  textInput: {
+    fontSize: 18,
+    color: 'black',
+    borderWidth: 2,
+    borderColor: 'green',
+    margin: 10,
+    backgroundColor: 'grey',
+  },
+});
 
 export default App;
