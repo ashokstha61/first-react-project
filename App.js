@@ -15,6 +15,7 @@ function App() {
   }
   return (
     <View>
+      <Text>Use of useState</Text>
       <Text style={{fontSize: 20}}>{name}</Text>
       <Button title="Update name" onPress={() => setName('hari')} />
       <User name={name} age={29} />
