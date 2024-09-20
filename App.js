@@ -16,8 +16,8 @@ function App() {
   return (
     <View>
       <Text style={{fontSize: 20}}>{name}</Text>
-      <Button title="Update name" onPress={testName} />
-      <User name={'ram'} />
+      <Button title="Update name" onPress={() => setName('hari')} />
+      <User name={name} age={29} />
     </View>
   );
 }
@@ -25,7 +25,8 @@ function App() {
 const User = props => {
   return (
     <View style={{backgroundColor: 'green', padding: 5}}>
-      <Text style={{fontSize: 25}}>{props.name}</Text>
+      <Text style={{fontSize: 25}}>Name: {props.name}</Text>
+      <Text style={{fontSize: 24}}> Age: {props.age}</Text>
     </View>
   );
 };
